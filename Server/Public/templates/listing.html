@@ -1,0 +1,27 @@
+<button class="btn btn-primary linkButton" ng-hide="listing.listings.admin" >
+    <a class="link" href="/login.html">Login</a>
+</button>
+<button class="btn btn-primary linkButton" ng-show="listing.listings.admin" >
+    <a class="link" href="/logout">Logout</a>
+</button>
+<button class="btn btn-primary linkButton" ng-show="listing.listings.admin">
+    <a class="link" href="/enquiry.html">Show enquiry</a>
+</button>
+<button class="btn btn-primary linkButton" ng-hide="listing.listings.admin">
+    <a class="link" href="/contactus.html">Contact Us</a>
+</button>
+<div>
+    <h2>Properties For Sale</h2>
+    
+    <div class="row">
+    <div class ="col-md-3 col-sm-3 col-lg-3 col-xs-2 forSale" 
+    ng-repeat="listingProperty in listing.listings.result">
+        Cost: {{listingProperty.cost | currency}} <br>
+        Square Feet: {{listingProperty.sqft}} ft<sup>2</sup> <br>
+        City: {{listingProperty.city}} <br>
+        PropertyId : {{listingProperty.pid}} <br>
+        <button class="btn btn-danger"><a href = "../contactus.html">Enquire</a></button>
+        <button ng-click="listing.deleteListing(listingProperty._id)" class="btn btn-danger" ng-show="listing.listings.admin">Delete Listing</button>
+    </div>
+</div>
+</div>
